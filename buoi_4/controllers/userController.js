@@ -36,7 +36,10 @@ const put = asynchandle(async (req, res) => {
 const deleteUser = asynchandle(async (req, res) => {
     let { id } = req.params;
     const userDelete = await User.findByIdAndDelete(id);
-    res.json(userDelete).send('Ok');
+    res.json({
+        status: 'success',
+        data: userDelete,
+    });
 });
 module.exports = {
     get,
